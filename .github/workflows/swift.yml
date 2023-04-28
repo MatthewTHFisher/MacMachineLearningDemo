@@ -10,13 +10,16 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  linting:
     runs-on: macos-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Swiftlint
       run: swiftlint lint --strict
+
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v3
     - name: Build
-      run: swift build -v
+      run:  xcodebuild build | xcbeautify
