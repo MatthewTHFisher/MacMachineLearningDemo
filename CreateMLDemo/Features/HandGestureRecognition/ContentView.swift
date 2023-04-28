@@ -29,7 +29,7 @@ struct HandGestureView: View {
     }
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             HStack {
                 Toggle(isOn: $showPredictions) {
                     Text("Predictions")
@@ -37,7 +37,11 @@ struct HandGestureView: View {
                 Toggle(isOn: $showAugmentation) {
                     Text("Augmentation")
                 }
+                NavigationLink("More information") {
+                    SupportingMatter()
+                }
             }
+            .padding(.vertical, 10)
             HStack {
                 GeometryReader { geo in
                     ZStack {

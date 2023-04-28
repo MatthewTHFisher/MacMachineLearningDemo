@@ -10,13 +10,14 @@ import SwiftUI
 
 /// The available sidebar tabs used within the app
 enum SidebarTab: Int, CaseIterable, Codable {
-    case birdImage
-    case handGesture
+    case birdImage = 1
+    case handGesture = 2
 
     var icon: Image {
         switch self {
         case .birdImage:
             return Image(systemName: "bird.fill")
+
         case .handGesture:
             return Image(systemName: "hand.raised.fill")
         }

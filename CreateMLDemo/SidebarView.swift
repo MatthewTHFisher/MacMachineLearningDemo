@@ -2,14 +2,11 @@
 //  SidebarView.swift
 //
 //  Created by Matthew Fisher on 27/04/2023.
-//  Copyright © Jaguar Land Rover Ltd 2023 All rights reserved.
-//  This software is confidential and proprietary information.
 //
 
 import SwiftUI
 
 struct SidebarView: View {
-
     /// The tab being hovered over by the cursor
     @State var hoveredTab: SidebarTab?
     /// The current selected tab for the app
@@ -17,7 +14,7 @@ struct SidebarView: View {
 
     /// The foreground color for a tab
     private func tabForegroundColor(_ tab: SidebarTab) -> Color {
-        return selectedTab == tab ? Color(NSColor.windowBackgroundColor) : (hoveredTab == tab ? Color.primary : Color.primary )
+        selectedTab == tab ? Color(NSColor.windowBackgroundColor) : (hoveredTab == tab ? Color.primary : Color.primary )
     }
 
     init(_ selectedTab: Binding<SidebarTab>) {

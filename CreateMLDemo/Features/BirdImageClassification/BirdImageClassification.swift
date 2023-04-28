@@ -2,55 +2,94 @@
 //  BirdImageClassification.swift
 //
 //  Created by Matthew Fisher on 27/04/2023.
-//  Copyright © Jaguar Land Rover Ltd 2023 All rights reserved.
-//  This software is confidential and proprietary information.
 //  
 
-import SwiftUI
+import CoreImage
 import CoreML
 import Photos
 import PhotosUI
-import CoreImage
+import SwiftUI
 
 struct BirdImageClassification: View {
-
     @State var imageUrl: URL?
     @State var image: Image?
     var mlModel: BirdClassificationmodel = .init()
     @State var prediction: BirdImageClassifierOutput?
 
     var body: some View {
-        VStack {
-            // PhotosPicker("Choose a photo to analyse", selection: $imageSelection, matching: .images)
-            ImagePickerButton("Choose a photo to analyse", url: $imageUrl)
+        ScrollView {
+            VStack {
+                DocumenationText(BirdImageClassificationStrings.trainingSetup)
 
-            if let image = self.image {
-                image
+                Image("BirdTrainingIterationGraph")
                     .resizable()
                     .scaledToFit()
-                    .frame(maxWidth: 300, maxHeight: 300)
-            }
-            
-            if let prediction = self.prediction?.classLabelProbs {
-                let prediction = prediction.filter { $0.value > 0.0001 }
-                ScrollView {
-                    ForEach(Array(prediction.keys.enumerated()), id: \.element) { _, key in
-                        HStack {
-                            Text(key)
-                            Text(String(format: "%.2f%%", (prediction[key] ?? 0)*100))
+                    .frame(maxWidth: 600)
+
+                DocumenationText(BirdImageClassificationStrings.useInstructions)
+
+                ImagePickerButton("Choose a photo to analyse", url: $imageUrl)
+
+                VStack {
+                    if let image = self.image {
+                        VStack {
+                            image
+                                .resizable()
+                                .scaledToFit()
+
+                            Spacer(minLength: 20)
+
+                            if let prediction = self.prediction?.classLabelProbs {
+                                let prediction = prediction.filter { $0.value > 0.0001 }
+                                ScrollView {
+                                    LazyVStack {
+                                        ForEach(Array(prediction.keys.enumerated()), id: \.element) { _, key in
+                                            HStack {
+                                                Text(key)
+                                                    .lineLimit(1)
+                                                    .frame(width: 120)
+                                                Spacer()
+                                                let predictionValue = prediction[key] ?? 0
+                                                CapsuleFillBar(percentage: predictionValue)
+                                                    .frame(height: 12)
+                                                    .overlay {
+                                                        Text(String(format: "%.2f%%", predictionValue * 100))
+                                                            .font(.caption2)
+                                                    }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
+                        .background {
+                            RoundedRectangle(cornerRadius: 10).fill(Color(nsColor: .textBackgroundColor))
+                        }
+                        .padding(.horizontal, 20)
+                        .frame(maxWidth: 500)
+                    } else {
+                        Rectangle().fill(Color.gray.opacity(0.5))
+                            .overlay {
+                                Text("Image")
+                            }
                     }
                 }
+                .frame(minWidth: 100, maxWidth: 500, minHeight: 100, maxHeight: 300)
+                .padding()
+                .background {
+                    RoundedRectangle(cornerRadius: 10).fill(Color(nsColor: .textBackgroundColor))
+                }
             }
-        }
-        .onChange(of: imageUrl) { newImageUrl in
-            guard let newImageUrl = newImageUrl else { return }
-            updateImage(for: newImageUrl)
-            
-            self.prediction = try? mlModel.model.prediction(input: .init(imageAt: newImageUrl))
+            .onChange(of: imageUrl) { newImageUrl in
+                guard let newImageUrl else { return }
+                updateImage(for: newImageUrl)
+
+                self.prediction = try? mlModel.model.prediction(input: .init(imageAt: newImageUrl))
+            }
+            .padding(.horizontal, 30)
         }
     }
-    
+
     func updateImage(for url: URL) {
         do {
             let imageData = try Data(contentsOf: url)
@@ -61,19 +100,6 @@ struct BirdImageClassification: View {
             image = Image(nsImage: nsImage)
         } catch {
             print("Error loading image : \(error)")
-        }
-    }
-}
-
-class BirdClassificationmodel {
-    private(set) var model: BirdImageClassifier!
-
-    init() {
-        let modelURL = Bundle.main.url(forResource: "BirdImageClassifier", withExtension: "mlmodelc")!
-        do {
-            model = try BirdImageClassifier(model: MLModel(contentsOf: modelURL))
-        } catch {
-            fatalError("⛔️ Could not find MLModel")
         }
     }
 }

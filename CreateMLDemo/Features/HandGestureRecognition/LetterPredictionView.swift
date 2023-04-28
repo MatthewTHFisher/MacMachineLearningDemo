@@ -12,6 +12,7 @@ struct LetterPredictionView: View {
     var prediction: CGFloat
     var isActive: Bool
     var showPredictionText = true
+    static let height: CGFloat = 22
 
     var visualBarPrediction: CGFloat {
         guard prediction > 0.05 else { return 0 }
@@ -27,8 +28,6 @@ struct LetterPredictionView: View {
         self.prediction = prediction
         self.isActive = isActive
     }
-
-    static let height: CGFloat = 22
 
     var body: some View {
         HStack(spacing: 0) {
@@ -54,20 +53,6 @@ struct LetterPredictionView: View {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(isActive ? .green : .clear, lineWidth: 2)
         )
-    }
-
-    struct CapsuleFillBar: View {
-        var percentage: CGFloat
-        var body: some View {
-            GeometryReader { geo in
-                ZStack(alignment: .bottom) {
-                    Capsule().fill(Color.gray.opacity(0.7))
-
-                    Capsule().fill(Color.green)
-                        .frame(height: geo.size.height * percentage)
-                }
-            }
-        }
     }
 }
 

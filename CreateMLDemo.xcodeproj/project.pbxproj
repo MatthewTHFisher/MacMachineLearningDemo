@@ -20,6 +20,11 @@
 		5964594C29FAA07200847F7F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5964594B29FAA07200847F7F /* Preview Assets.xcassets */; };
 		5964595429FAA0E400847F7F /* BirdImageClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964595329FAA0E400847F7F /* BirdImageClassification.swift */; };
 		5964595829FAA21000847F7F /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964595729FAA21000847F7F /* SidebarView.swift */; };
+		59B0DCF329FC414500C29BC8 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0DCF229FC414500C29BC8 /* Strings.swift */; };
+		59B0DCF529FC427700C29BC8 /* DocumenationText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0DCF429FC427700C29BC8 /* DocumenationText.swift */; };
+		59B0DCF729FC4AD500C29BC8 /* SupportingMatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0DCF629FC4AD500C29BC8 /* SupportingMatter.swift */; };
+		59B0DCF929FC621800C29BC8 /* CapsuleFillBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0DCF829FC621800C29BC8 /* CapsuleFillBar.swift */; };
+		59B0DCFB29FC623F00C29BC8 /* BirdClassificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0DCFA29FC623F00C29BC8 /* BirdClassificationModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +43,11 @@
 		5964594D29FAA07200847F7F /* CreateMLDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CreateMLDemo.entitlements; sourceTree = "<group>"; };
 		5964595329FAA0E400847F7F /* BirdImageClassification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdImageClassification.swift; sourceTree = "<group>"; };
 		5964595729FAA21000847F7F /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		59B0DCF229FC414500C29BC8 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		59B0DCF429FC427700C29BC8 /* DocumenationText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumenationText.swift; sourceTree = "<group>"; };
+		59B0DCF629FC4AD500C29BC8 /* SupportingMatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportingMatter.swift; sourceTree = "<group>"; };
+		59B0DCF829FC621800C29BC8 /* CapsuleFillBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleFillBar.swift; sourceTree = "<group>"; };
+		59B0DCFA29FC623F00C29BC8 /* BirdClassificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdClassificationModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +67,7 @@
 				5964595329FAA0E400847F7F /* BirdImageClassification.swift */,
 				59617F0429FC2A9400D7CC08 /* ImagePickerButton.swift */,
 				59617F0629FC2CB200D7CC08 /* Resources */,
+				59B0DCFA29FC623F00C29BC8 /* BirdClassificationModel.swift */,
 			);
 			path = BirdImageClassification;
 			sourceTree = "<group>";
@@ -67,6 +78,7 @@
 				59617EFA29FC209A00D7CC08 /* ASLModel.swift */,
 				59617EFB29FC209A00D7CC08 /* CameraView.swift */,
 				59617EF529FC209900D7CC08 /* ContentView.swift */,
+				59B0DCF629FC4AD500C29BC8 /* SupportingMatter.swift */,
 				59617EF729FC209900D7CC08 /* LetterPredictionView.swift */,
 				59617EF829FC209A00D7CC08 /* Resources */,
 			);
@@ -85,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				59617F0729FC2CB200D7CC08 /* BirdImageClassifier.mlmodel */,
+				59B0DCF229FC414500C29BC8 /* Strings.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -110,11 +123,13 @@
 			children = (
 				5964595929FAA32B00847F7F /* Features */,
 				5964594429FAA06D00847F7F /* CreateMLDemoApp.swift */,
+				59B0DCF429FC427700C29BC8 /* DocumenationText.swift */,
 				5964595729FAA21000847F7F /* SidebarView.swift */,
 				59617F0229FC288500D7CC08 /* SidebarTabs.swift */,
 				5964594829FAA07200847F7F /* Assets.xcassets */,
 				5964594D29FAA07200847F7F /* CreateMLDemo.entitlements */,
 				5964594A29FAA07200847F7F /* Preview Content */,
+				59B0DCF829FC621800C29BC8 /* CapsuleFillBar.swift */,
 			);
 			path = CreateMLDemo;
 			sourceTree = "<group>";
@@ -146,6 +161,7 @@
 				5964593D29FAA06D00847F7F /* Sources */,
 				5964593E29FAA06D00847F7F /* Frameworks */,
 				5964593F29FAA06D00847F7F /* Resources */,
+				59617F0B29FC36B600D7CC08 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -201,6 +217,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		59617F0B29FC36B600D7CC08 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint --fix\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5964593D29FAA06D00847F7F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -212,10 +251,15 @@
 				59617EFF29FC209A00D7CC08 /* ASLHandPoseClassifier.mlmodel in Sources */,
 				59617F0029FC209A00D7CC08 /* ASLModel.swift in Sources */,
 				59617F0129FC209A00D7CC08 /* CameraView.swift in Sources */,
+				59B0DCFB29FC623F00C29BC8 /* BirdClassificationModel.swift in Sources */,
+				59B0DCF529FC427700C29BC8 /* DocumenationText.swift in Sources */,
+				59B0DCF929FC621800C29BC8 /* CapsuleFillBar.swift in Sources */,
 				59617EFE29FC209A00D7CC08 /* LetterPredictionView.swift in Sources */,
 				59617EFC29FC209A00D7CC08 /* ContentView.swift in Sources */,
 				5964595829FAA21000847F7F /* SidebarView.swift in Sources */,
 				59617F0329FC288500D7CC08 /* SidebarTabs.swift in Sources */,
+				59B0DCF729FC4AD500C29BC8 /* SupportingMatter.swift in Sources */,
+				59B0DCF329FC414500C29BC8 /* Strings.swift in Sources */,
 				5964594529FAA06D00847F7F /* CreateMLDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

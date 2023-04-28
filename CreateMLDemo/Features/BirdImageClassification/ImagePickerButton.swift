@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct ImagePickerButton: View {
-    
     let text: String
     @Binding var imageUrl: URL?
-    
+
     init(_ text: String, url: Binding<URL?>) {
         self.text = text
         self._imageUrl = url
     }
-    
+
     var body: some View {
         Button(text) {
             let openPanel = NSOpenPanel()
@@ -25,8 +24,8 @@ struct ImagePickerButton: View {
             openPanel.canChooseDirectories = false
             openPanel.canCreateDirectories = false
             openPanel.canChooseFiles = true
-            openPanel.allowedContentTypes = [.png,.jpeg]
-            openPanel.begin { (result) -> Void in
+            openPanel.allowedContentTypes = [.png, .jpeg]
+            openPanel.begin { result -> Void in
                 if result.rawValue == NSApplication.ModalResponse.OK.rawValue {
                     imageUrl = URL(fileURLWithPath: openPanel.url!.path)
                 }

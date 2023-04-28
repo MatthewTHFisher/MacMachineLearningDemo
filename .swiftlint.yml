@@ -16,3 +16,5 @@ disabled_rules:
  - fatal_error_message
  - implicitly_unwrapped_optional
  - closure_body_length
+ - accessibility_trait_for_button
+ - accessibility_label_for_image
