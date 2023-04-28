@@ -11,23 +11,23 @@ import SwiftUI
 struct SidebarView: View {
 
     /// The tab being hovered over by the cursor
-    @State var hoveredTab: NavigationTab?
+    @State var hoveredTab: SidebarTab?
     /// The current selected tab for the app
-    @Binding var selectedTab: NavigationTab
+    @Binding var selectedTab: SidebarTab
 
     /// The foreground color for a tab
-    private func tabForegroundColor(_ tab: NavigationTab) -> Color {
+    private func tabForegroundColor(_ tab: SidebarTab) -> Color {
         return selectedTab == tab ? Color(NSColor.windowBackgroundColor) : (hoveredTab == tab ? Color.primary : Color.primary )
     }
 
-    init(_ selectedTab: Binding<NavigationTab>) {
+    init(_ selectedTab: Binding<SidebarTab>) {
         self._selectedTab = selectedTab
     }
 
     var body: some View {
         VStack {
             List {
-                ForEach(NavigationTab.allCases, id: \.self) { tab in
+                ForEach(SidebarTab.allCases, id: \.self) { tab in
                     HStack(alignment: .center, spacing: 0) {
                         tab.icon
                             .frame(width: 24)

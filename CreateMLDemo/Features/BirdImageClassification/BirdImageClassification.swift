@@ -7,18 +7,22 @@
 //  
 
 import SwiftUI
+import CoreML
 import Photos
 import PhotosUI
+import CoreImage
 
 struct BirdImageClassification: View {
 
-    @State var imageSelection: PhotosPickerItem?
-    @State var image: Image? = nil
-    @State var imageLoadErrorMessage: String?
+    @State var imageUrl: URL?
+    @State var image: Image?
+    var mlModel: BirdClassificationmodel = .init()
+    @State var prediction: BirdImageClassifierOutput?
 
     var body: some View {
         VStack {
-            PhotosPicker("Choose a photo to analyse", selection: $imageSelection, matching: .images)
+            // PhotosPicker("Choose a photo to analyse", selection: $imageSelection, matching: .images)
+            ImagePickerButton("Choose a photo to analyse", url: $imageUrl)
 
             if let image = self.image {
                 image
@@ -26,33 +30,50 @@ struct BirdImageClassification: View {
                     .scaledToFit()
                     .frame(maxWidth: 300, maxHeight: 300)
             }
-        }
-        .onChange(of: imageSelection) { _ in
-            Task {
-                guard (imageSelection != nil) else { return }
-                _ = loadTransferable(from: imageSelection!)
-            }
-        }
-    }
-
-    func loadTransferable(from imageSelection: PhotosPickerItem) -> Progress {
-        return imageSelection.loadTransferable(type: Image.self) { result in
-            DispatchQueue.main.async {
-                // guard imageSelection == self.imageSelection else { return }
-                switch result {
-                case .success(let image?):
-                    self.image = image
-                    self.imageLoadErrorMessage = nil
-                    // Handle the success case with the image.
-                case .success(nil):
-                    self.image = nil
-                    self.imageLoadErrorMessage = nil
-                    // Handle the success case with an empty value.
-                case .failure(let error):
-                    self.imageLoadErrorMessage = error.localizedDescription
-                    // Handle the failure case with the provided error.
+            
+            if let prediction = self.prediction?.classLabelProbs {
+                let prediction = prediction.filter { $0.value > 0.0001 }
+                ScrollView {
+                    ForEach(Array(prediction.keys.enumerated()), id: \.element) { _, key in
+                        HStack {
+                            Text(key)
+                            Text(String(format: "%.2f%%", (prediction[key] ?? 0)*100))
+                        }
+                    }
                 }
             }
+        }
+        .onChange(of: imageUrl) { newImageUrl in
+            guard let newImageUrl = newImageUrl else { return }
+            updateImage(for: newImageUrl)
+            
+            self.prediction = try? mlModel.model.prediction(input: .init(imageAt: newImageUrl))
+        }
+    }
+    
+    func updateImage(for url: URL) {
+        do {
+            let imageData = try Data(contentsOf: url)
+            guard let nsImage = NSImage(data: imageData) else {
+                print("Image data could not be loaded")
+                return
+            }
+            image = Image(nsImage: nsImage)
+        } catch {
+            print("Error loading image : \(error)")
+        }
+    }
+}
+
+class BirdClassificationmodel {
+    private(set) var model: BirdImageClassifier!
+
+    init() {
+        let modelURL = Bundle.main.url(forResource: "BirdImageClassifier", withExtension: "mlmodelc")!
+        do {
+            model = try BirdImageClassifier(model: MLModel(contentsOf: modelURL))
+        } catch {
+            fatalError("⛔️ Could not find MLModel")
         }
     }
 }

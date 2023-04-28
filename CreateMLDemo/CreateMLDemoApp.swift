@@ -11,11 +11,22 @@ import SwiftUI
 @main
 struct CreateMLDemoApp: App {
 
-    @State var selectedTab: NavigationTab = .birdImage
+    @State var selectedTab: SidebarTab = .birdImage
 
     var body: some Scene {
         WindowGroup {
-            AppTabView(selectedTab: $selectedTab)
+            NavigationView {
+                SidebarView($selectedTab)
+
+                Group {
+                    switch selectedTab {
+                    case .birdImage:
+                        BirdImageClassification()
+                    case .handGesture:
+                        HandGestureView()
+                    }
+                }
+            }
         }.commands {
             SidebarCommands()
         }
@@ -23,26 +34,4 @@ struct CreateMLDemoApp: App {
 }
 
 
-/// The available sidebar tabs used within the app
-enum NavigationTab: Int, CaseIterable, Codable {
-    case birdImage
-    case handGesture
 
-    var icon: Image {
-        switch self {
-        case .birdImage:
-            return Image(systemName: "bird.fill")
-        case .handGesture:
-            return Image(systemName: "hand.raised.fill")
-        }
-    }
-
-    var title: String {
-        switch self {
-        case .birdImage:
-            return "Bird Image Classification"
-        case .handGesture:
-            return "Hand Pose Identification"
-        }
-    }
-}

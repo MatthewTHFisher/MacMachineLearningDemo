@@ -12,11 +12,13 @@
 		59617EFF29FC209A00D7CC08 /* ASLHandPoseClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 59617EF929FC209A00D7CC08 /* ASLHandPoseClassifier.mlmodel */; };
 		59617F0029FC209A00D7CC08 /* ASLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59617EFA29FC209A00D7CC08 /* ASLModel.swift */; };
 		59617F0129FC209A00D7CC08 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59617EFB29FC209A00D7CC08 /* CameraView.swift */; };
+		59617F0329FC288500D7CC08 /* SidebarTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59617F0229FC288500D7CC08 /* SidebarTabs.swift */; };
+		59617F0529FC2A9400D7CC08 /* ImagePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59617F0429FC2A9400D7CC08 /* ImagePickerButton.swift */; };
+		59617F0929FC2CB200D7CC08 /* BirdImageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 59617F0729FC2CB200D7CC08 /* BirdImageClassifier.mlmodel */; };
 		5964594529FAA06D00847F7F /* CreateMLDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964594429FAA06D00847F7F /* CreateMLDemoApp.swift */; };
 		5964594929FAA07200847F7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5964594829FAA07200847F7F /* Assets.xcassets */; };
 		5964594C29FAA07200847F7F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5964594B29FAA07200847F7F /* Preview Assets.xcassets */; };
 		5964595429FAA0E400847F7F /* BirdImageClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964595329FAA0E400847F7F /* BirdImageClassification.swift */; };
-		5964595629FAA13700847F7F /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964595529FAA13700847F7F /* AppTabView.swift */; };
 		5964595829FAA21000847F7F /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964595729FAA21000847F7F /* SidebarView.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,13 +28,15 @@
 		59617EF929FC209A00D7CC08 /* ASLHandPoseClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ASLHandPoseClassifier.mlmodel; sourceTree = "<group>"; };
 		59617EFA29FC209A00D7CC08 /* ASLModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLModel.swift; sourceTree = "<group>"; };
 		59617EFB29FC209A00D7CC08 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		59617F0229FC288500D7CC08 /* SidebarTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarTabs.swift; sourceTree = "<group>"; };
+		59617F0429FC2A9400D7CC08 /* ImagePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerButton.swift; sourceTree = "<group>"; };
+		59617F0729FC2CB200D7CC08 /* BirdImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = BirdImageClassifier.mlmodel; sourceTree = "<group>"; };
 		5964594129FAA06D00847F7F /* CreateMLDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreateMLDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5964594429FAA06D00847F7F /* CreateMLDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMLDemoApp.swift; sourceTree = "<group>"; };
 		5964594829FAA07200847F7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5964594B29FAA07200847F7F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5964594D29FAA07200847F7F /* CreateMLDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CreateMLDemo.entitlements; sourceTree = "<group>"; };
 		5964595329FAA0E400847F7F /* BirdImageClassification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdImageClassification.swift; sourceTree = "<group>"; };
-		5964595529FAA13700847F7F /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		5964595729FAA21000847F7F /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +55,8 @@
 			isa = PBXGroup;
 			children = (
 				5964595329FAA0E400847F7F /* BirdImageClassification.swift */,
+				59617F0429FC2A9400D7CC08 /* ImagePickerButton.swift */,
+				59617F0629FC2CB200D7CC08 /* Resources */,
 			);
 			path = BirdImageClassification;
 			sourceTree = "<group>";
@@ -71,6 +77,14 @@
 			isa = PBXGroup;
 			children = (
 				59617EF929FC209A00D7CC08 /* ASLHandPoseClassifier.mlmodel */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		59617F0629FC2CB200D7CC08 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				59617F0729FC2CB200D7CC08 /* BirdImageClassifier.mlmodel */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -96,8 +110,8 @@
 			children = (
 				5964595929FAA32B00847F7F /* Features */,
 				5964594429FAA06D00847F7F /* CreateMLDemoApp.swift */,
-				5964595529FAA13700847F7F /* AppTabView.swift */,
 				5964595729FAA21000847F7F /* SidebarView.swift */,
+				59617F0229FC288500D7CC08 /* SidebarTabs.swift */,
 				5964594829FAA07200847F7F /* Assets.xcassets */,
 				5964594D29FAA07200847F7F /* CreateMLDemo.entitlements */,
 				5964594A29FAA07200847F7F /* Preview Content */,
@@ -116,8 +130,8 @@
 		5964595929FAA32B00847F7F /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				59617EE629FC1D1F00D7CC08 /* HandGestureRecognition */,
 				59617EE529FC1D1300D7CC08 /* BirdImageClassification */,
+				59617EE629FC1D1F00D7CC08 /* HandGestureRecognition */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -193,13 +207,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5964595429FAA0E400847F7F /* BirdImageClassification.swift in Sources */,
+				59617F0929FC2CB200D7CC08 /* BirdImageClassifier.mlmodel in Sources */,
+				59617F0529FC2A9400D7CC08 /* ImagePickerButton.swift in Sources */,
 				59617EFF29FC209A00D7CC08 /* ASLHandPoseClassifier.mlmodel in Sources */,
 				59617F0029FC209A00D7CC08 /* ASLModel.swift in Sources */,
 				59617F0129FC209A00D7CC08 /* CameraView.swift in Sources */,
 				59617EFE29FC209A00D7CC08 /* LetterPredictionView.swift in Sources */,
 				59617EFC29FC209A00D7CC08 /* ContentView.swift in Sources */,
 				5964595829FAA21000847F7F /* SidebarView.swift in Sources */,
-				5964595629FAA13700847F7F /* AppTabView.swift in Sources */,
+				59617F0329FC288500D7CC08 /* SidebarTabs.swift in Sources */,
 				5964594529FAA06D00847F7F /* CreateMLDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
