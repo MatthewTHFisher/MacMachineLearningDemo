@@ -22,4 +22,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build
-      run:  xcodebuild build | xcbeautify
+      run:  xcodebuild build | xcpretty
