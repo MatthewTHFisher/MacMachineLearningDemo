@@ -5,13 +5,13 @@
 //  Created by Matthew Fisher on 24/09/2022.
 //
 
+import CoreML
 import Foundation
 import Vision
-import CoreML
 
 class ASLModel {
     private(set) var model: ASLHandPoseClassifier!
-    
+
     init() {
         let modelURL = Bundle.main.url(forResource: "ASLHandPoseClassifier", withExtension: "mlmodelc")!
         do {

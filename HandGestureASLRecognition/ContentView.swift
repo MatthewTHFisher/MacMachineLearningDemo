@@ -5,26 +5,25 @@
 //  Created by Matthew Fisher on 24/09/2022.
 //
 
+import AVFoundation
 import SwiftUI
 import Vision
-import AVFoundation
 
 struct ContentView: View {
-
     @ObservedObject var viewModel = ContentViewModel()
     @ObservedObject var poseViewModel = PlayerViewController()
-    
+
     private var handPoseRequest = VNDetectHumanHandPoseRequest()
-    
+
     @State var handPoints: [CGPoint] = []
-    
-    @State var showPredictions: Bool = false
-    @State var showAugmentation: Bool = false
-    
+
+    @State var showPredictions = false
+    @State var showAugmentation = false
+
     let rows = [
         GridItem(.adaptive(minimum: 40), alignment: .trailing)
     ]
-    
+
     init() {
         viewModel.checkAuthorization()
     }
@@ -45,7 +44,7 @@ struct ContentView: View {
                         PlayerContainerView(captureSession: viewModel.captureSession, viewModel: poseViewModel)
                             .onChange(of: poseViewModel.handPoseObservation) { observation in
                                 if showAugmentation {
-                                    guard let observation = observation else { return }
+                                    guard let observation else { return }
                                     processObservation(observation, imageSize: geo.size)
                                 }
                             }
@@ -54,12 +53,16 @@ struct ContentView: View {
                         }
                     }
                 }
-                
+
                 if let predictions = poseViewModel.prediction?.labelProbabilities, showPredictions {
                     let highestPrediction = predictions.values.max()
                     LazyHGrid(rows: self.rows, alignment: .firstTextBaseline) {
                         ForEach(Array(predictions.keys.sorted().enumerated()), id: \.element) { _, key in
-                            LetterPredictionView(letter: key, prediction: CGFloat(predictions[key] ?? 0), isActive: (predictions[key] ?? 0) == highestPrediction)
+                            LetterPredictionView(
+                                letter: key,
+                                prediction: CGFloat(predictions[key] ?? 0),
+                                isActive: (predictions[key] ?? 0) == highestPrediction
+                            )
                                 .fixedSize()
                         }
                     }
@@ -68,38 +71,36 @@ struct ContentView: View {
             }
         }
     }
-    
+
     func processObservation(_ observation: VNHumanHandPoseObservation, imageSize: CGSize) {
-        
         guard let recognizedPoints = try? observation.recognizedPoints(.all) else { return }
-        
+
         guard let previewLayer = poseViewModel.previewLayer else { return }
-        
-        let imagePointsNew: [CGPoint] = recognizedPoints.map { key, value in
-            //guard value.confidence > 0 else { return nil }
-            
+
+        let imagePointsNew: [CGPoint] = recognizedPoints.map { _, value in
+            // guard value.confidence > 0 else { return nil }
+
             // let point = VNImagePointForNormalizedPoint(value.location, Int(imageSize.width), Int(imageSize.height))
-            
-            let point = CGPoint(x: value.location.x, y: 1-value.location.y)
-            let newPoint = previewLayer.layerPointConverted(fromCaptureDevicePoint: point)
-            
-            return newPoint
+
+            let point = CGPoint(x: value.location.x, y: 1 - value.location.y)
+
+            return previewLayer.layerPointConverted(fromCaptureDevicePoint: point)
         }
-        
+
         // Draw the points onscreen.
         self.handPoints = imagePointsNew
     }
-    
+
     struct HandAugmentation: View {
         var handPoints: [CGPoint]
         var imageSize: CGSize
-        
+
         var body: some View {
             ZStack {
                 ForEach(self.handPoints, id: \.self) { point in
                     Circle()
                         .fill(Color.green.opacity(0.7))
-                        .position(x: point.x-imageSize.width/2, y: point.y-imageSize.height/2)
+                        .position(x: point.x - imageSize.width / 2, y: point.y - imageSize.height / 2)
                         .frame(width: 9, height: 9)
                 }
             }

@@ -8,36 +8,37 @@
 import SwiftUI
 
 struct LetterPredictionView: View {
-    
     let letter: String
     var prediction: CGFloat
     var isActive: Bool
-    var showPredictionText: Bool = true
-    
+    var showPredictionText = true
+
     var visualBarPrediction: CGFloat {
         guard prediction > 0.05 else { return 0 }
         return prediction
     }
-    
-    init(letter: String,
-         prediction: CGFloat,
-         isActive: Bool = false) {
+
+    init(
+        letter: String,
+        prediction: CGFloat,
+        isActive: Bool = false
+    ) {
         self.letter = letter
         self.prediction = prediction
         self.isActive = isActive
     }
-    
+
     static let height: CGFloat = 22
-    
+
     var body: some View {
         HStack(spacing: 0) {
             Text(letter)
                 .lineLimit(1)
-                .font(.system(size: LetterPredictionView.height))
+                .font(.system(size: Self.height))
                 .padding(.trailing, 5)
                 .fixedSize()
             CapsuleFillBar(percentage: visualBarPrediction)
-                .frame(width: 8, height: LetterPredictionView.height)
+                .frame(width: 8, height: Self.height)
             if showPredictionText {
                 Text(String(format: "%.1f%%", prediction * 100))
                     .font(.system(size: 8))
@@ -54,14 +55,14 @@ struct LetterPredictionView: View {
                 .stroke(isActive ? .green : .clear, lineWidth: 2)
         )
     }
-    
+
     struct CapsuleFillBar: View {
         var percentage: CGFloat
         var body: some View {
             GeometryReader { geo in
                 ZStack(alignment: .bottom) {
                     Capsule().fill(Color.gray.opacity(0.7))
-                    
+
                     Capsule().fill(Color.green)
                         .frame(height: geo.size.height * percentage)
                 }
