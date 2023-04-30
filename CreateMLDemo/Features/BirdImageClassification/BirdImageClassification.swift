@@ -29,64 +29,66 @@ struct BirdImageClassification: View {
                 DocumenationText(BirdImageClassificationStrings.useInstructions)
 
                 ImagePickerButton("Choose a photo to analyse", url: $imageUrl)
+                    .onChange(of: imageUrl) { newImageUrl in
+                        guard let newImageUrl else { return }
+                        updateImage(for: newImageUrl)
 
+                        prediction = try? mlModel.model.prediction(input: .init(imageAt: newImageUrl))
+                    }
+
+                imagePredictionView
+            }
+            .padding(.horizontal, 30)
+        }
+    }
+
+    var imagePredictionView: some View {
+        VStack {
+            if let image = self.image {
                 VStack {
-                    if let image = self.image {
-                        VStack {
-                            image
-                                .resizable()
-                                .scaledToFit()
+                    image
+                        .resizable()
+                        .scaledToFit()
 
-                            Spacer(minLength: 20)
+                    Spacer(minLength: 20)
 
-                            if let prediction = self.prediction?.classLabelProbs {
-                                let prediction = prediction.filter { $0.value > 0.0001 }
-                                ScrollView {
-                                    LazyVStack {
-                                        ForEach(Array(prediction.keys.enumerated()), id: \.element) { _, key in
-                                            HStack {
-                                                Text(key)
-                                                    .lineLimit(1)
-                                                    .frame(width: 120)
-                                                Spacer()
-                                                let predictionValue = prediction[key] ?? 0
-                                                CapsuleFillBar(percentage: predictionValue)
-                                                    .frame(height: 12)
-                                                    .overlay {
-                                                        Text(String(format: "%.2f%%", predictionValue * 100))
-                                                            .font(.caption2)
-                                                    }
-                                            }
-                                        }
+                    if let prediction = self.prediction?.classLabelProbs {
+                        let wow = prediction
+                            .compactMap { BirdPrediction(name: $0.key, value: $0.value) }
+                            .filter { $0.value > 0.0001 }
+                            .sorted { (lhs: BirdPrediction, rhs: BirdPrediction) -> Bool in
+                                // you can have additional code here
+                                return lhs.value > rhs.value
+                            }
+                        Table(wow) {
+                            TableColumn("Name", value: \.name)
+                            TableColumn("Prediction") { prediction in
+                                CapsuleFillBar(percentage: prediction.value)
+                                    .frame(height: 13)
+                                    .overlay {
+                                        Text(String(format: "%.2f%%", prediction.value * 100))
+                                            .font(.caption2)
                                     }
-                                }
                             }
                         }
-                        .background {
-                            RoundedRectangle(cornerRadius: 10).fill(Color(nsColor: .textBackgroundColor))
-                        }
-                        .padding(.horizontal, 20)
-                        .frame(maxWidth: 500)
-                    } else {
-                        Rectangle().fill(Color.gray.opacity(0.5))
-                            .overlay {
-                                Text("Image")
-                            }
+                        .frame(maxHeight: 500)
                     }
                 }
-                .frame(minWidth: 100, maxWidth: 500, minHeight: 100, maxHeight: 300)
-                .padding()
                 .background {
                     RoundedRectangle(cornerRadius: 10).fill(Color(nsColor: .textBackgroundColor))
                 }
+                .padding(.horizontal, 20)
+                .frame(maxWidth: 500)
+            } else {
+                Rectangle().fill(Color.gray.opacity(0.5))
+                    .overlay {
+                        Text("Image")
+                    }
             }
-            .onChange(of: imageUrl) { newImageUrl in
-                guard let newImageUrl else { return }
-                updateImage(for: newImageUrl)
-
-                self.prediction = try? mlModel.model.prediction(input: .init(imageAt: newImageUrl))
-            }
-            .padding(.horizontal, 30)
+        }
+        .padding()
+        .background {
+            RoundedRectangle(cornerRadius: 10).fill(Color(nsColor: .textBackgroundColor))
         }
     }
 
@@ -102,4 +104,10 @@ struct BirdImageClassification: View {
             print("Error loading image : \(error)")
         }
     }
+}
+
+struct BirdPrediction: Identifiable {
+    var id = UUID()
+    var name: String
+    var value: Double
 }

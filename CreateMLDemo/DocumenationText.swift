@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct DocumenationText: View {
-    let text: String
+    let text: LocalizedStringKey
 
-    init(_ text: String) {
+    init(_ text: LocalizedStringKey) {
+        self.text = text
+    }
+
+    init?(markdown filepath: String, withExtension: String = "md") {
+        guard let text = loadMarkdownAsString(forResource: filepath, withExtension: withExtension) else {
+            return nil
+        }
         self.text = text
     }
 
