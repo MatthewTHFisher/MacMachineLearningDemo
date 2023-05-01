@@ -105,9 +105,3 @@ struct BirdImageClassification: View {
         }
     }
 }
-
-struct BirdPrediction: Identifiable {
-    var id = UUID()
-    var name: String
-    var value: Double
-}

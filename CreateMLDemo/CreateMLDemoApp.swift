@@ -8,7 +8,7 @@ import SwiftUI
 
 @main
 struct CreateMLDemoApp: App {
-    @State var selectedTab: SidebarTab = .birdImage
+    @AppStorage("sidebarTab") var selectedTab: SidebarTab = .introductionToML
 
     var body: some Scene {
         WindowGroup {
@@ -17,6 +17,9 @@ struct CreateMLDemoApp: App {
 
                 Group {
                     switch selectedTab {
+                    case .introductionToML:
+                        EmptyView()
+
                     case .birdImage:
                         BirdImageClassification()
 

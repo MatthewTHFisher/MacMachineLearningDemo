@@ -22,6 +22,7 @@
 		5964594C29FAA07200847F7F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5964594B29FAA07200847F7F /* Preview Assets.xcassets */; };
 		5964595429FAA0E400847F7F /* BirdImageClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964595329FAA0E400847F7F /* BirdImageClassification.swift */; };
 		5964595829FAA21000847F7F /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964595729FAA21000847F7F /* SidebarView.swift */; };
+		599D93D429FE855200D7B161 /* BirdPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D93D329FE855200D7B161 /* BirdPrediction.swift */; };
 		59B0DCF329FC414500C29BC8 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0DCF229FC414500C29BC8 /* Strings.swift */; };
 		59B0DCF529FC427700C29BC8 /* DocumenationText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0DCF429FC427700C29BC8 /* DocumenationText.swift */; };
 		59B0DCF729FC4AD500C29BC8 /* SupportingMatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0DCF629FC4AD500C29BC8 /* SupportingMatter.swift */; };
@@ -47,6 +48,8 @@
 		5964594D29FAA07200847F7F /* CreateMLDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CreateMLDemo.entitlements; sourceTree = "<group>"; };
 		5964595329FAA0E400847F7F /* BirdImageClassification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdImageClassification.swift; sourceTree = "<group>"; };
 		5964595729FAA21000847F7F /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		599D93D329FE855200D7B161 /* BirdPrediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdPrediction.swift; sourceTree = "<group>"; };
+		599D93D529FE857700D7B161 /* Introduction.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Introduction.md; sourceTree = "<group>"; };
 		59B0DCF229FC414500C29BC8 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		59B0DCF429FC427700C29BC8 /* DocumenationText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumenationText.swift; sourceTree = "<group>"; };
 		59B0DCF629FC4AD500C29BC8 /* SupportingMatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportingMatter.swift; sourceTree = "<group>"; };
@@ -69,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				5964595329FAA0E400847F7F /* BirdImageClassification.swift */,
+				599D93D329FE855200D7B161 /* BirdPrediction.swift */,
 				59617F0429FC2A9400D7CC08 /* ImagePickerButton.swift */,
 				59617F0629FC2CB200D7CC08 /* Resources */,
 				59B0DCFA29FC623F00C29BC8 /* BirdClassificationModel.swift */,
@@ -93,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				59617EF929FC209A00D7CC08 /* ASLHandPoseClassifier.mlmodel */,
+				599D93D529FE857700D7B161 /* Introduction.md */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -151,10 +156,18 @@
 		5964595929FAA32B00847F7F /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				599D93D629FE863500D7B161 /* IntroductionToML */,
 				59617EE529FC1D1300D7CC08 /* BirdImageClassification */,
 				59617EE629FC1D1F00D7CC08 /* HandGestureRecognition */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		599D93D629FE863500D7B161 /* IntroductionToML */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = IntroductionToML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +274,7 @@
 				59B0DCFB29FC623F00C29BC8 /* BirdClassificationModel.swift in Sources */,
 				59B0DCF529FC427700C29BC8 /* DocumenationText.swift in Sources */,
 				59B0DCF929FC621800C29BC8 /* CapsuleFillBar.swift in Sources */,
+				599D93D429FE855200D7B161 /* BirdPrediction.swift in Sources */,
 				59528E4429FD1A8200EDF5A4 /* MarkdownLoader.swift in Sources */,
 				59617EFE29FC209A00D7CC08 /* LetterPredictionView.swift in Sources */,
 				59617EFC29FC209A00D7CC08 /* ContentView.swift in Sources */,

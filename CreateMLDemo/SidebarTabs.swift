@@ -10,11 +10,15 @@ import SwiftUI
 
 /// The available sidebar tabs used within the app
 enum SidebarTab: Int, CaseIterable, Codable {
-    case birdImage = 1
-    case handGesture = 2
+    case introductionToML = 1
+    case birdImage = 2
+    case handGesture = 3
 
     var icon: Image {
         switch self {
+        case .introductionToML:
+            return Image(systemName: "brain.head.profile")
+
         case .birdImage:
             return Image(systemName: "bird.fill")
 
@@ -25,6 +29,8 @@ enum SidebarTab: Int, CaseIterable, Codable {
 
     var title: String {
         switch self {
+        case .introductionToML:
+            return "Introduction to ML"
         case .birdImage:
             return "Bird Image Classification"
         case .handGesture:
