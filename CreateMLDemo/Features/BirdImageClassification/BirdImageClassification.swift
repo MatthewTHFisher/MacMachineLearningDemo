@@ -68,7 +68,7 @@ struct BirdImageClassification: View {
                     if let prediction {
                         let data = BirdPrediction.fromDict(dictionary: prediction.classLabelProbs)
                         let filteredData = BirdPrediction.filterArray(data)
-                        VStack(alignment: .listRowSeparatorLeading) {
+                        VStack(alignment: .leading) {
                             ForEach(filteredData) { prediction in
                                 Text(String(format: "%.1f%@ - %@", prediction.value * 100, "%", prediction.name))
                             }
