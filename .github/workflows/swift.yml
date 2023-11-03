@@ -26,7 +26,9 @@ jobs:
       run: brew install xcbeautify
     - name: Test CreateMLDemo
       run: set -o pipefail && xcodebuild clean build test -scheme "CreateMLDemo" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcbeautify --report junit --junit-report-filename createmldemo_junit_report.xml
+    - name: Archive test results
+      uses: actions/upload-artifact@v3
       with:
-          name: test-report
-          path: createmldemo_junit_report.xml
+        name: test-report
+        path: createmldemo_junit_report.xml
     
