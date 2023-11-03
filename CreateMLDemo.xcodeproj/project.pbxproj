@@ -28,7 +28,36 @@
 		59B0DCF729FC4AD500C29BC8 /* SupportingMatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0DCF629FC4AD500C29BC8 /* SupportingMatter.swift */; };
 		59B0DCF929FC621800C29BC8 /* CapsuleFillBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0DCF829FC621800C29BC8 /* CapsuleFillBar.swift */; };
 		59B0DCFB29FC623F00C29BC8 /* BirdClassificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0DCFA29FC623F00C29BC8 /* BirdClassificationModel.swift */; };
+		59D720CD2AF4EFE2009FB85B /* BirdPredictionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D720CC2AF4EFE2009FB85B /* BirdPredictionTests.swift */; };
+		59FEE9342AF500C40075BCFD /* BirdClassificationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEE9332AF500C40075BCFD /* BirdClassificationModelTests.swift */; };
+		59FEE9392AF5015C0075BCFD /* TestBirdImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEE9382AF5015C0075BCFD /* TestBirdImages.swift */; };
+		59FEE9412AF506740075BCFD /* kakapo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59FEE9402AF506740075BCFD /* kakapo.jpg */; };
+		59FEE9432AF506790075BCFD /* osprey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59FEE9422AF506790075BCFD /* osprey.jpg */; };
+		59FEE9452AF5067F0075BCFD /* eurasian_jay.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59FEE9442AF5067F0075BCFD /* eurasian_jay.jpg */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		59FEE9312AF4F5D00075BCFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5964593929FAA06C00847F7F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5964594029FAA06D00847F7F;
+			remoteInfo = CreateMLDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		59D720D82AF4F32B009FB85B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		59528E4329FD1A8200EDF5A4 /* MarkdownLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownLoader.swift; sourceTree = "<group>"; };
@@ -55,10 +84,25 @@
 		59B0DCF629FC4AD500C29BC8 /* SupportingMatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportingMatter.swift; sourceTree = "<group>"; };
 		59B0DCF829FC621800C29BC8 /* CapsuleFillBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleFillBar.swift; sourceTree = "<group>"; };
 		59B0DCFA29FC623F00C29BC8 /* BirdClassificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdClassificationModel.swift; sourceTree = "<group>"; };
+		59D720CA2AF4EFE2009FB85B /* CreateMLDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CreateMLDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		59D720CC2AF4EFE2009FB85B /* BirdPredictionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdPredictionTests.swift; sourceTree = "<group>"; };
+		59D720D52AF4F32A009FB85B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		59FEE9332AF500C40075BCFD /* BirdClassificationModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdClassificationModelTests.swift; sourceTree = "<group>"; };
+		59FEE9382AF5015C0075BCFD /* TestBirdImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBirdImages.swift; sourceTree = "<group>"; };
+		59FEE9402AF506740075BCFD /* kakapo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kakapo.jpg; sourceTree = "<group>"; };
+		59FEE9422AF506790075BCFD /* osprey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = osprey.jpg; sourceTree = "<group>"; };
+		59FEE9442AF5067F0075BCFD /* eurasian_jay.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eurasian_jay.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5964593E29FAA06D00847F7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59D720C72AF4EFE2009FB85B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -116,7 +160,9 @@
 			isa = PBXGroup;
 			children = (
 				5964594329FAA06D00847F7F /* CreateMLDemo */,
+				59D720CB2AF4EFE2009FB85B /* CreateMLDemoTests */,
 				5964594229FAA06D00847F7F /* Products */,
+				59D720D42AF4F32A009FB85B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				5964594129FAA06D00847F7F /* CreateMLDemo.app */,
+				59D720CA2AF4EFE2009FB85B /* CreateMLDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +217,43 @@
 			path = IntroductionToML;
 			sourceTree = "<group>";
 		};
+		59D720CB2AF4EFE2009FB85B /* CreateMLDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				59D720D32AF4EFEA009FB85B /* BirdImageClassificationTests */,
+			);
+			path = CreateMLDemoTests;
+			sourceTree = "<group>";
+		};
+		59D720D32AF4EFEA009FB85B /* BirdImageClassificationTests */ = {
+			isa = PBXGroup;
+			children = (
+				59FEE9352AF501320075BCFD /* Resources */,
+				59D720CC2AF4EFE2009FB85B /* BirdPredictionTests.swift */,
+				59FEE9332AF500C40075BCFD /* BirdClassificationModelTests.swift */,
+			);
+			path = BirdImageClassificationTests;
+			sourceTree = "<group>";
+		};
+		59D720D42AF4F32A009FB85B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59D720D52AF4F32A009FB85B /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		59FEE9352AF501320075BCFD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				59FEE9422AF506790075BCFD /* osprey.jpg */,
+				59FEE9442AF5067F0075BCFD /* eurasian_jay.jpg */,
+				59FEE9402AF506740075BCFD /* kakapo.jpg */,
+				59FEE9382AF5015C0075BCFD /* TestBirdImages.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -191,6 +275,25 @@
 			productReference = 5964594129FAA06D00847F7F /* CreateMLDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		59D720C92AF4EFE2009FB85B /* CreateMLDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59D720D22AF4EFE2009FB85B /* Build configuration list for PBXNativeTarget "CreateMLDemoTests" */;
+			buildPhases = (
+				59D720C62AF4EFE2009FB85B /* Sources */,
+				59D720C72AF4EFE2009FB85B /* Frameworks */,
+				59D720C82AF4EFE2009FB85B /* Resources */,
+				59D720D82AF4F32B009FB85B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				59FEE9322AF4F5D00075BCFD /* PBXTargetDependency */,
+			);
+			name = CreateMLDemoTests;
+			productName = CreateMLDemoTests;
+			productReference = 59D720CA2AF4EFE2009FB85B /* CreateMLDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -198,11 +301,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					5964594029FAA06D00847F7F = {
 						CreatedOnToolsVersion = 14.3;
+					};
+					59D720C92AF4EFE2009FB85B = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 5964594029FAA06D00847F7F;
 					};
 				};
 			};
@@ -220,6 +327,7 @@
 			projectRoot = "";
 			targets = (
 				5964594029FAA06D00847F7F /* CreateMLDemo */,
+				59D720C92AF4EFE2009FB85B /* CreateMLDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -232,6 +340,16 @@
 				5964594C29FAA07200847F7F /* Preview Assets.xcassets in Resources */,
 				59528E4629FD1D2900EDF5A4 /* Example.md in Resources */,
 				5964594929FAA07200847F7F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59D720C82AF4EFE2009FB85B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59FEE9452AF5067F0075BCFD /* eurasian_jay.jpg in Resources */,
+				59FEE9432AF506790075BCFD /* osprey.jpg in Resources */,
+				59FEE9412AF506740075BCFD /* kakapo.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,13 +404,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		59D720C62AF4EFE2009FB85B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59FEE9342AF500C40075BCFD /* BirdClassificationModelTests.swift in Sources */,
+				59FEE9392AF5015C0075BCFD /* TestBirdImages.swift in Sources */,
+				59D720CD2AF4EFE2009FB85B /* BirdPredictionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		59FEE9322AF4F5D00075BCFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5964594029FAA06D00847F7F /* CreateMLDemo */;
+			targetProxy = 59FEE9312AF4F5D00075BCFD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5964594E29FAA07200847F7F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -322,6 +459,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -353,6 +491,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -382,6 +521,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -408,13 +548,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CreateMLDemo/CreateMLDemo.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CreateMLDemo/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = C9Q3ULUV86;
+				DEVELOPMENT_TEAM = C9Q3ULUV86;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -439,13 +580,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CreateMLDemo/CreateMLDemo.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CreateMLDemo/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = C9Q3ULUV86;
+				DEVELOPMENT_TEAM = C9Q3ULUV86;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -461,6 +603,59 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		59D720D02AF4EFE2009FB85B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = C9Q3ULUV86;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mfisher.CreateMLDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CreateMLDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CreateMLDemo";
+			};
+			name = Debug;
+		};
+		59D720D12AF4EFE2009FB85B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = C9Q3ULUV86;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mfisher.CreateMLDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CreateMLDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CreateMLDemo";
 			};
 			name = Release;
 		};
@@ -481,6 +676,15 @@
 			buildConfigurations = (
 				5964595129FAA07200847F7F /* Debug */,
 				5964595229FAA07200847F7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59D720D22AF4EFE2009FB85B /* Build configuration list for PBXNativeTarget "CreateMLDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59D720D02AF4EFE2009FB85B /* Debug */,
+				59D720D12AF4EFE2009FB85B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

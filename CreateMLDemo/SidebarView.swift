@@ -8,7 +8,7 @@ import SwiftUI
 
 struct SidebarView: View {
     /// The tab being hovered over by the cursor
-    @State var hoveredTab: SidebarTab?
+    @State private var hoveredTab: SidebarTab?
     /// The current selected tab for the app
     @Binding var selectedTab: SidebarTab
 
@@ -44,11 +44,11 @@ struct SidebarView: View {
                     )
                     .onTapGesture {
                         // When a tab is selected update the selectedTab binding
-                        self.selectedTab = tab
+                        selectedTab = tab
                     }
                     .onHover { hover in
                         // When a tab is hovered store it
-                        self.hoveredTab = hover ? tab : nil
+                        hoveredTab = hover ? tab : nil
                     }
                 }
             }

@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+// swiftlint:disable sorted_enum_cases
+
 /// The available sidebar tabs used within the app
 enum SidebarTab: Int, CaseIterable, Codable {
     case introductionToML = 1
@@ -38,3 +40,5 @@ enum SidebarTab: Int, CaseIterable, Codable {
         }
     }
 }
+
+// swiftlint:enable sorted_enum_cases

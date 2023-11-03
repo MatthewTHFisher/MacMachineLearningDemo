@@ -8,7 +8,8 @@ import SwiftUI
 
 @main
 struct CreateMLDemoApp: App {
-    @AppStorage("sidebarTab") var selectedTab: SidebarTab = .introductionToML
+    @AppStorage("sidebarTab")
+    var selectedTab: SidebarTab = .introductionToML
 
     var body: some Scene {
         WindowGroup {

@@ -15,10 +15,10 @@ struct HandGestureView: View {
 
     private var handPoseRequest = VNDetectHumanHandPoseRequest()
 
-    @State var handPoints: [CGPoint] = []
+    @State private var handPoints: [CGPoint] = []
 
-    @State var showPredictions = false
-    @State var showAugmentation = false
+    @State private var showPredictions = false
+    @State private var showAugmentation = false
 
     let rows = [
         GridItem(.adaptive(minimum: 40), alignment: .trailing)
@@ -53,14 +53,14 @@ struct HandGestureView: View {
                                 }
                             }
                         if showAugmentation {
-                            HandAugmentation(handPoints: self.handPoints, imageSize: geo.size)
+                            HandAugmentation(handPoints: handPoints, imageSize: geo.size)
                         }
                     }
                 }
 
                 if let predictions = poseViewModel.prediction?.labelProbabilities, showPredictions {
                     let highestPrediction = predictions.values.max()
-                    LazyHGrid(rows: self.rows, alignment: .firstTextBaseline) {
+                    LazyHGrid(rows: rows, alignment: .firstTextBaseline) {
                         ForEach(Array(predictions.keys.sorted().enumerated()), id: \.element) { _, key in
                             LetterPredictionView(
                                 letter: key,
@@ -71,6 +71,7 @@ struct HandGestureView: View {
                         }
                     }
                     .padding(5)
+                    .background(Color.gray)
                 }
             }
         }
@@ -102,7 +103,7 @@ struct HandGestureView: View {
 
         var body: some View {
             ZStack {
-                ForEach(self.handPoints, id: \.self) { point in
+                ForEach(handPoints, id: \.self) { point in
                     Circle()
                         .fill(Color.green.opacity(0.7))
                         .position(x: point.x - imageSize.width / 2, y: point.y - imageSize.height / 2)

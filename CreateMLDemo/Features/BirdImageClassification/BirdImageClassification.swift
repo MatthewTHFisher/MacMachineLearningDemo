@@ -11,10 +11,18 @@ import PhotosUI
 import SwiftUI
 
 struct BirdImageClassification: View {
-    @State var imageUrl: URL?
-    @State var image: Image?
-    var mlModel: BirdClassificationmodel = .init()
-    @State var prediction: BirdImageClassifierOutput?
+    @State private var imageUrl: URL?
+    @State private var image: Image?
+    var mlModel: BirdClassificationModel
+    @State private var prediction: BirdImageClassifierOutput?
+
+    init() {
+        do {
+            self.mlModel = try .init()
+        } catch {
+            fatalError("⛔️ Could not initialise BirdClassificationModel")
+        }
+    }
 
     var body: some View {
         ScrollView {
@@ -33,7 +41,12 @@ struct BirdImageClassification: View {
                         guard let newImageUrl else { return }
                         updateImage(for: newImageUrl)
 
-                        prediction = try? mlModel.model.prediction(input: .init(imageAt: newImageUrl))
+                        do {
+                            prediction = try mlModel.model.prediction(input: .init(imageAt: newImageUrl))
+                            print("✅ Successfully got predictions")
+                        } catch {
+                            print("⛔️ Failed to get prediction")
+                        }
                     }
 
                 imagePredictionView
@@ -44,7 +57,7 @@ struct BirdImageClassification: View {
 
     var imagePredictionView: some View {
         VStack {
-            if let image = self.image {
+            if let image {
                 VStack {
                     image
                         .resizable()
@@ -52,33 +65,20 @@ struct BirdImageClassification: View {
 
                     Spacer(minLength: 20)
 
-                    if let prediction = self.prediction?.classLabelProbs {
-                        let wow = prediction
-                            .compactMap { BirdPrediction(name: $0.key, value: $0.value) }
-                            .filter { $0.value > 0.0001 }
-                            .sorted { (lhs: BirdPrediction, rhs: BirdPrediction) -> Bool in
-                                // you can have additional code here
-                                return lhs.value > rhs.value
-                            }
-                        Table(wow) {
-                            TableColumn("Name", value: \.name)
-                            TableColumn("Prediction") { prediction in
-                                CapsuleFillBar(percentage: prediction.value)
-                                    .frame(height: 13)
-                                    .overlay {
-                                        Text(String(format: "%.2f%%", prediction.value * 100))
-                                            .font(.caption2)
-                                    }
+                    if let prediction {
+                        let data = BirdPrediction.fromDict(dictionary: prediction.classLabelProbs)
+                        let filteredData = BirdPrediction.filterArray(data)
+                        VStack(alignment: .listRowSeparatorLeading) {
+                            ForEach(filteredData) { prediction in
+                                Text(String(format: "%.1f%@ - %@", prediction.value * 100, "%", prediction.name))
                             }
                         }
-                        .frame(maxHeight: 500)
                     }
                 }
                 .background {
                     RoundedRectangle(cornerRadius: 10).fill(Color(nsColor: .textBackgroundColor))
                 }
                 .padding(.horizontal, 20)
-                .frame(maxWidth: 500)
             } else {
                 Rectangle().fill(Color.gray.opacity(0.5))
                     .overlay {
@@ -86,6 +86,7 @@ struct BirdImageClassification: View {
                     }
             }
         }
+        .frame(maxWidth: 500, minHeight: 150)
         .padding()
         .background {
             RoundedRectangle(cornerRadius: 10).fill(Color(nsColor: .textBackgroundColor))

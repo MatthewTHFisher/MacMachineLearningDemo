@@ -7,15 +7,11 @@
 
 import CoreML
 
-class BirdClassificationmodel {
+class BirdClassificationModel {
     private(set) var model: BirdImageClassifier!
 
-    init() {
+    init() throws {
         let modelURL = Bundle.main.url(forResource: "BirdImageClassifier", withExtension: "mlmodelc")!
-        do {
-            model = try BirdImageClassifier(model: MLModel(contentsOf: modelURL))
-        } catch {
-            fatalError("⛔️ Could not find MLModel")
-        }
+        model = try BirdImageClassifier(model: MLModel(contentsOf: modelURL))
     }
 }
