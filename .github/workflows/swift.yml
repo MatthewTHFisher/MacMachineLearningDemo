@@ -23,3 +23,11 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build
       run: set -o pipefail && xcodebuild clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
+
+  test:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Test
+      run: set -o pipefail && xcodebuild clean build test -scheme "CreateMLDemo" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
+    
