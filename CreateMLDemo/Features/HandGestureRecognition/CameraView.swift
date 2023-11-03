@@ -6,7 +6,8 @@ import SwiftUI
 import Vision
 
 class PlayerViewController: NSViewController, AVCaptureVideoDataOutputSampleBufferDelegate, ObservableObject {
-    let mlModel = ASLModel()
+    // swiftlint:disable:next force_try
+    let mlModel = try! ASLModel()
 
     @Published var handPoseObservation: VNHumanHandPoseObservation?
     @Published var prediction: ASLHandPoseClassifierOutput?
@@ -18,27 +19,15 @@ class PlayerViewController: NSViewController, AVCaptureVideoDataOutputSampleBuff
         didOutput sampleBuffer: CMSampleBuffer,
         from connection: AVCaptureConnection
     ) {
-        let handPoseRequest = VNDetectHumanHandPoseRequest()
-        handPoseRequest.maximumHandCount = 1
-
-        let handler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: .up)
         do {
-            try handler.perform([handPoseRequest])
-        } catch {
-            print("⚠️ Failed to make hand pose request")
-        }
+            self.handPoseObservation = try HandPoseObservation.getHandPoses(cmSampleBuffer: sampleBuffer).first
 
-        guard let handPoses = handPoseRequest.results, !handPoses.isEmpty else {
-            return
-        }
+            guard handPoseObservation != nil else {
+                return
+            }
 
-        self.handPoseObservation = handPoses.first
+            let keypointsMultiArray = try self.handPoseObservation!.keypointsMultiArray()
 
-        guard let keypointsMultiArray = try? self.handPoseObservation?.keypointsMultiArray() else {
-            fatalError()
-        }
-
-        do {
             prediction = try mlModel.model.prediction(poses: keypointsMultiArray)
         } catch {
             return

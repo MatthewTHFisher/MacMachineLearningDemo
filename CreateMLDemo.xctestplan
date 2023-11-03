@@ -1,0 +1,34 @@
+{
+  "configurations" : [
+    {
+      "id" : "BE57BE6D-B9C4-460A-BDB5-297326395C62",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "language" : "en-GB",
+    "locationScenario" : {
+      "identifier" : "London, England",
+      "referenceType" : "built-in"
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:CreateMLDemo.xcodeproj",
+      "identifier" : "5964594029FAA06D00847F7F",
+      "name" : "CreateMLDemo"
+    },
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:CreateMLDemo.xcodeproj",
+        "identifier" : "59D720C92AF4EFE2009FB85B",
+        "name" : "CreateMLDemoTests"
+      }
+    }
+  ],
+  "version" : 1
+}

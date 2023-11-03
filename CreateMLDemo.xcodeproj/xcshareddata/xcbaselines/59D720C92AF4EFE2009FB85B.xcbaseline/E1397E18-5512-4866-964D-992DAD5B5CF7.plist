@@ -4,6 +4,21 @@
 <dict>
 	<key>classNames</key>
 	<dict>
+		<key>ASLModelTests</key>
+		<dict>
+			<key>test_endToEndPerformance()</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.009000</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>Local Baseline</string>
+					<key>maxPercentRelativeStandardDeviation</key>
+					<real>15.000000</real>
+				</dict>
+			</dict>
+		</dict>
 		<key>BirdClassificationModelTests</key>
 		<dict>
 			<key>test_modelCanMakePrediction()</key>

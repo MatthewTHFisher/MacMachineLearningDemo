@@ -7,17 +7,12 @@
 
 import CoreML
 import Foundation
-import Vision
 
 class ASLModel {
     private(set) var model: ASLHandPoseClassifier!
 
-    init() {
+    init() throws {
         let modelURL = Bundle.main.url(forResource: "ASLHandPoseClassifier", withExtension: "mlmodelc")!
-        do {
-            model = try ASLHandPoseClassifier(model: MLModel(contentsOf: modelURL))
-        } catch {
-            fatalError("⛔️ Could not find MLModel")
-        }
+        model = try ASLHandPoseClassifier(model: MLModel(contentsOf: modelURL))
     }
 }

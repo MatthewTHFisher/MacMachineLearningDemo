@@ -29,6 +29,13 @@
 		59B0DCF929FC621800C29BC8 /* CapsuleFillBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0DCF829FC621800C29BC8 /* CapsuleFillBar.swift */; };
 		59B0DCFB29FC623F00C29BC8 /* BirdClassificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0DCFA29FC623F00C29BC8 /* BirdClassificationModel.swift */; };
 		59D720CD2AF4EFE2009FB85B /* BirdPredictionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D720CC2AF4EFE2009FB85B /* BirdPredictionTests.swift */; };
+		59F6E4802AF510DE0021D110 /* ASLModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F6E47F2AF510DE0021D110 /* ASLModelTests.swift */; };
+		59F6E4832AF514B30021D110 /* w_test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59F6E4822AF514B30021D110 /* w_test.jpg */; };
+		59F6E4852AF514B80021D110 /* c_test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59F6E4842AF514B80021D110 /* c_test.jpg */; };
+		59F6E4872AF514D40021D110 /* TestASLImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F6E4862AF514D40021D110 /* TestASLImages.swift */; };
+		59F6E4892AF520A10021D110 /* HandPoseObservationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F6E4882AF520A10021D110 /* HandPoseObservationTests.swift */; };
+		59F6E48B2AF522280021D110 /* HandPoseObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F6E48A2AF522280021D110 /* HandPoseObservation.swift */; };
+		59F6E48E2AF522780021D110 /* CGImageFromURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F6E48D2AF522780021D110 /* CGImageFromURL.swift */; };
 		59FEE9342AF500C40075BCFD /* BirdClassificationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEE9332AF500C40075BCFD /* BirdClassificationModelTests.swift */; };
 		59FEE9392AF5015C0075BCFD /* TestBirdImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEE9382AF5015C0075BCFD /* TestBirdImages.swift */; };
 		59FEE9412AF506740075BCFD /* kakapo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59FEE9402AF506740075BCFD /* kakapo.jpg */; };
@@ -87,6 +94,14 @@
 		59D720CA2AF4EFE2009FB85B /* CreateMLDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CreateMLDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D720CC2AF4EFE2009FB85B /* BirdPredictionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdPredictionTests.swift; sourceTree = "<group>"; };
 		59D720D52AF4F32A009FB85B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		59F6E47D2AF5101D0021D110 /* CreateMLDemo.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateMLDemo.xctestplan; sourceTree = "<group>"; };
+		59F6E47F2AF510DE0021D110 /* ASLModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASLModelTests.swift; sourceTree = "<group>"; };
+		59F6E4822AF514B30021D110 /* w_test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = w_test.jpg; sourceTree = "<group>"; };
+		59F6E4842AF514B80021D110 /* c_test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = c_test.jpg; sourceTree = "<group>"; };
+		59F6E4862AF514D40021D110 /* TestASLImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestASLImages.swift; sourceTree = "<group>"; };
+		59F6E4882AF520A10021D110 /* HandPoseObservationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandPoseObservationTests.swift; sourceTree = "<group>"; };
+		59F6E48A2AF522280021D110 /* HandPoseObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandPoseObservation.swift; sourceTree = "<group>"; };
+		59F6E48D2AF522780021D110 /* CGImageFromURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImageFromURL.swift; sourceTree = "<group>"; };
 		59FEE9332AF500C40075BCFD /* BirdClassificationModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdClassificationModelTests.swift; sourceTree = "<group>"; };
 		59FEE9382AF5015C0075BCFD /* TestBirdImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBirdImages.swift; sourceTree = "<group>"; };
 		59FEE9402AF506740075BCFD /* kakapo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kakapo.jpg; sourceTree = "<group>"; };
@@ -129,6 +144,7 @@
 			children = (
 				59617EFA29FC209A00D7CC08 /* ASLModel.swift */,
 				59617EFB29FC209A00D7CC08 /* CameraView.swift */,
+				59F6E48A2AF522280021D110 /* HandPoseObservation.swift */,
 				59617EF529FC209900D7CC08 /* ContentView.swift */,
 				59B0DCF629FC4AD500C29BC8 /* SupportingMatter.swift */,
 				59617EF729FC209900D7CC08 /* LetterPredictionView.swift */,
@@ -159,6 +175,7 @@
 		5964593829FAA06C00847F7F = {
 			isa = PBXGroup;
 			children = (
+				59F6E47D2AF5101D0021D110 /* CreateMLDemo.xctestplan */,
 				5964594329FAA06D00847F7F /* CreateMLDemo */,
 				59D720CB2AF4EFE2009FB85B /* CreateMLDemoTests */,
 				5964594229FAA06D00847F7F /* Products */,
@@ -221,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				59D720D32AF4EFEA009FB85B /* BirdImageClassificationTests */,
+				59F6E47E2AF510BC0021D110 /* HandGestureRecognitionTests */,
 			);
 			path = CreateMLDemoTests;
 			sourceTree = "<group>";
@@ -241,6 +259,35 @@
 				59D720D52AF4F32A009FB85B /* XCTest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		59F6E47E2AF510BC0021D110 /* HandGestureRecognitionTests */ = {
+			isa = PBXGroup;
+			children = (
+				59F6E48C2AF5225C0021D110 /* HelperFunctions */,
+				59F6E4812AF514A90021D110 /* Resources */,
+				59F6E47F2AF510DE0021D110 /* ASLModelTests.swift */,
+				59F6E4882AF520A10021D110 /* HandPoseObservationTests.swift */,
+			);
+			path = HandGestureRecognitionTests;
+			sourceTree = "<group>";
+		};
+		59F6E4812AF514A90021D110 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				59F6E4842AF514B80021D110 /* c_test.jpg */,
+				59F6E4822AF514B30021D110 /* w_test.jpg */,
+				59F6E4862AF514D40021D110 /* TestASLImages.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		59F6E48C2AF5225C0021D110 /* HelperFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				59F6E48D2AF522780021D110 /* CGImageFromURL.swift */,
+			);
+			path = HelperFunctions;
 			sourceTree = "<group>";
 		};
 		59FEE9352AF501320075BCFD /* Resources */ = {
@@ -350,6 +397,8 @@
 				59FEE9452AF5067F0075BCFD /* eurasian_jay.jpg in Resources */,
 				59FEE9432AF506790075BCFD /* osprey.jpg in Resources */,
 				59FEE9412AF506740075BCFD /* kakapo.jpg in Resources */,
+				59F6E4832AF514B30021D110 /* w_test.jpg in Resources */,
+				59F6E4852AF514B80021D110 /* c_test.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +438,7 @@
 				59617EFF29FC209A00D7CC08 /* ASLHandPoseClassifier.mlmodel in Sources */,
 				59617F0029FC209A00D7CC08 /* ASLModel.swift in Sources */,
 				59617F0129FC209A00D7CC08 /* CameraView.swift in Sources */,
+				59F6E48B2AF522280021D110 /* HandPoseObservation.swift in Sources */,
 				59B0DCFB29FC623F00C29BC8 /* BirdClassificationModel.swift in Sources */,
 				59B0DCF529FC427700C29BC8 /* DocumenationText.swift in Sources */,
 				59B0DCF929FC621800C29BC8 /* CapsuleFillBar.swift in Sources */,
@@ -409,7 +459,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				59FEE9342AF500C40075BCFD /* BirdClassificationModelTests.swift in Sources */,
+				59F6E4872AF514D40021D110 /* TestASLImages.swift in Sources */,
 				59FEE9392AF5015C0075BCFD /* TestBirdImages.swift in Sources */,
+				59F6E4802AF510DE0021D110 /* ASLModelTests.swift in Sources */,
+				59F6E4892AF520A10021D110 /* HandPoseObservationTests.swift in Sources */,
+				59F6E48E2AF522780021D110 /* CGImageFromURL.swift in Sources */,
 				59D720CD2AF4EFE2009FB85B /* BirdPredictionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
