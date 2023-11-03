@@ -29,5 +29,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: test-report
-        path: createmldemo_junit_report.xml
+        path: output/test/createmldemo_junit_report.xml
     
