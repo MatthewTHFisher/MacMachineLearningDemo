@@ -39,10 +39,16 @@ struct BirdImageClassification: View {
                 ImagePickerButton("Choose a photo to analyse", url: $imageUrl)
                     .onChange(of: imageUrl) { newImageUrl in
                         guard let newImageUrl else { return }
-                        updateImage(for: newImageUrl)
-
                         do {
-                            prediction = try mlModel.model.prediction(input: .init(imageAt: newImageUrl))
+                            if let image = try urlToNSImage(newImageUrl) {
+                                self.image = Image(nsImage: image)
+                            } else {
+                                image = nil
+                            }
+
+                            prediction = try mlModel.model.prediction(
+                                input: BirdImageClassifierInput(imageAt: newImageUrl)
+                            )
                             print("✅ Successfully got predictions")
                         } catch {
                             print("⛔️ Failed to get prediction")
@@ -90,19 +96,6 @@ struct BirdImageClassification: View {
         .padding()
         .background {
             RoundedRectangle(cornerRadius: 10).fill(Color(nsColor: .textBackgroundColor))
-        }
-    }
-
-    func updateImage(for url: URL) {
-        do {
-            let imageData = try Data(contentsOf: url)
-            guard let nsImage = NSImage(data: imageData) else {
-                print("Image data could not be loaded")
-                return
-            }
-            image = Image(nsImage: nsImage)
-        } catch {
-            print("Error loading image : \(error)")
         }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5949FD502AF555D2005DF68D /* URLToNSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5949FD4F2AF555D2005DF68D /* URLToNSImage.swift */; };
 		59528E4429FD1A8200EDF5A4 /* MarkdownLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59528E4329FD1A8200EDF5A4 /* MarkdownLoader.swift */; };
 		59528E4629FD1D2900EDF5A4 /* Example.md in Resources */ = {isa = PBXBuildFile; fileRef = 59528E4529FD1C9300EDF5A4 /* Example.md */; };
 		59617EFC29FC209A00D7CC08 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59617EF529FC209900D7CC08 /* ContentView.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5949FD4F2AF555D2005DF68D /* URLToNSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLToNSImage.swift; sourceTree = "<group>"; };
 		59528E4329FD1A8200EDF5A4 /* MarkdownLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownLoader.swift; sourceTree = "<group>"; };
 		59528E4529FD1C9300EDF5A4 /* Example.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Example.md; sourceTree = "<group>"; };
 		59617EF529FC209900D7CC08 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5949FD4D2AF552F4005DF68D /* CommonUI */ = {
+			isa = PBXGroup;
+			children = (
+				59B0DCF829FC621800C29BC8 /* CapsuleFillBar.swift */,
+				59B0DCF429FC427700C29BC8 /* DocumenationText.swift */,
+			);
+			path = CommonUI;
+			sourceTree = "<group>";
+		};
+		5949FD4E2AF55308005DF68D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				59528E4329FD1A8200EDF5A4 /* MarkdownLoader.swift */,
+				5949FD4F2AF555D2005DF68D /* URLToNSImage.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		59617EE529FC1D1300D7CC08 /* BirdImageClassification */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,9 +217,6 @@
 			children = (
 				5964595929FAA32B00847F7F /* Features */,
 				5964594429FAA06D00847F7F /* CreateMLDemoApp.swift */,
-				59B0DCF829FC621800C29BC8 /* CapsuleFillBar.swift */,
-				59B0DCF429FC427700C29BC8 /* DocumenationText.swift */,
-				59528E4329FD1A8200EDF5A4 /* MarkdownLoader.swift */,
 				5964595729FAA21000847F7F /* SidebarView.swift */,
 				59617F0229FC288500D7CC08 /* SidebarTabs.swift */,
 				5964594829FAA07200847F7F /* Assets.xcassets */,
@@ -220,6 +237,8 @@
 		5964595929FAA32B00847F7F /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				5949FD4E2AF55308005DF68D /* Common */,
+				5949FD4D2AF552F4005DF68D /* CommonUI */,
 				599D93D629FE863500D7B161 /* IntroductionToML */,
 				59617EE529FC1D1300D7CC08 /* BirdImageClassification */,
 				59617EE629FC1D1F00D7CC08 /* HandGestureRecognition */,
@@ -451,6 +470,7 @@
 				59B0DCF729FC4AD500C29BC8 /* SupportingMatter.swift in Sources */,
 				59B0DCF329FC414500C29BC8 /* Strings.swift in Sources */,
 				5964594529FAA06D00847F7F /* CreateMLDemoApp.swift in Sources */,
+				5949FD502AF555D2005DF68D /* URLToNSImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

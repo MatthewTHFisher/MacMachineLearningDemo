@@ -26,3 +26,16 @@ struct CapsuleFillBar: View {
         }
     }
 }
+
+struct CapsuleFillBar_Previews: PreviewProvider {
+    static var previews: some View {
+        HStack(spacing: 10) {
+            CapsuleFillBar(percentage: 0.0)
+            CapsuleFillBar(percentage: 0.25)
+            CapsuleFillBar(percentage: 0.5)
+            CapsuleFillBar(percentage: 0.75)
+            CapsuleFillBar(percentage: 1.0)
+        }
+        .padding()
+    }
+}

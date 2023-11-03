@@ -10,6 +10,7 @@ import XCTest
 
 final class HandPoseObservationTests: XCTestCase {
     func test_getHandPoseSuccessful() throws {
+        // An image that has a hand in it
         let image = imageFromURL(url: TestASLImages.cPose)
         let observations = try HandPoseObservation.getHandPoses(cgImage: image)
 
@@ -17,6 +18,7 @@ final class HandPoseObservationTests: XCTestCase {
     }
 
     func test_getHandPoseNoVisibleHand() throws {
+        // An image without a hand in it
         let image = imageFromURL(url: TestBirdImage.osprey)
         let observations = try HandPoseObservation.getHandPoses(cgImage: image)
 
