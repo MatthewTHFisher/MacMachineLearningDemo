@@ -10,7 +10,7 @@ The current application has the following features/capabilities.
 - Hand Pose Detection and Prediction (including augmentation)
 
 <p align="center">
-  <img src="Resources/handPosePredictionAndAugmentationDemo.png" />
+  <img src="Resources/handPosePredictionVideo.gif" />
 </p>
 
 ### Notes
