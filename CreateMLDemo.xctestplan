@@ -9,6 +9,9 @@
     }
   ],
   "defaultOptions" : {
+    "commandLineArgumentEntries" : [
+
+    ],
     "language" : "en-GB",
     "locationScenario" : {
       "identifier" : "London, England",

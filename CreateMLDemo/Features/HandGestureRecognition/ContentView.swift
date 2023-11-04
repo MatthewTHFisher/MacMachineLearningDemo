@@ -43,6 +43,7 @@ struct HandGestureView: View {
             }
             .padding(.vertical, 10)
             HStack {
+                #if !TEST
                 GeometryReader { geo in
                     ZStack {
                         PlayerContainerView(captureSession: viewModel.captureSession, viewModel: poseViewModel)
@@ -57,6 +58,15 @@ struct HandGestureView: View {
                         }
                     }
                 }
+                #else
+                ZStack {
+                    Text("Camera is not available while testing")
+                        .padding()
+                        .background(Color.red)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                #endif
 
                 if let predictions = poseViewModel.prediction?.labelProbabilities, showPredictions {
                     let highestPrediction = predictions.values.max()

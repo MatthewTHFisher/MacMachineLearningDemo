@@ -78,7 +78,7 @@ struct PlayerContainerView: NSViewRepresentable {
     let captureSession: AVCaptureSession
     let viewModel: PlayerViewController
 
-    init(captureSession: AVCaptureSession, viewModel: PlayerViewController = PlayerViewController()) {
+    init(captureSessio: AVCaptureSession, viewModel: PlayerViewController = PlayerViewController()) {
         self.captureSession = captureSession
         self.viewModel = viewModel
     }
