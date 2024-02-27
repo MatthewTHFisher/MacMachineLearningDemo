@@ -1,0 +1,41 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Perform SwiftLint via Fastlane"
+  lane :swiftlint_autocorrect do
+    swiftlint(
+      mode: :fix,
+      raise_if_swiftlint_error: true
+    )
+  end
+
+  desc "Perform unit tests for the macOS target"
+  lane :unit_test do
+    scan(
+      destination:'platform=OS X,arch=x86_64'
+    )
+  end
+  
+  desc "Perform a development build of the macOS app"
+  lane :dev_build do
+    gym(
+      scheme:"CreateMLDemo",
+      export_method:"development"
+    )
+  end
+end
