@@ -18,7 +18,7 @@ jobs:
     - name: Set up ruby env
       uses: ruby/setup-ruby@v1.138.0
       with:
-        ruby-version: 3.3.0
+        ruby-version: 3.2.0
         bundler-cache: true
 
     - name: Swiftlint
@@ -32,7 +32,7 @@ jobs:
     - name: Set up ruby env
       uses: ruby/setup-ruby@v1.138.0
       with:
-        ruby-version: 3.3.0
+        ruby-version: 3.2.0
         bundler-cache: true
         
     - name: Test CreateMLDemo
