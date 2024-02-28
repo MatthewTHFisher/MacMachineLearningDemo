@@ -33,7 +33,8 @@ platform :ios do
   desc "Perform unit tests for the macOS target"
   lane :unit_test do
     scan(
-      destination:'platform=OS X,arch=x86_64'
+      destination:'platform=OS X,arch=x86_64',
+      xcargs:"CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO"
     )
   end
   
