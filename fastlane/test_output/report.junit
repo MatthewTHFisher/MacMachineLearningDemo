@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites tests="9" failures="0">
-    <testsuite name="CreateMLDemoTests" tests="9" failures="0" skipped="0" time="1.6444860696792603">
+    <testsuite name="CreateMLDemoTests" tests="9" failures="0" skipped="0" time="2.109549045562744">
         <properties>
           <property name="Configuration" value="Test Scheme Action"/>
         </properties>
-        <testcase classname="ASLModelTests" name="test_endToEndPerformance()" time="0.9752929210662842">
+        <testcase classname="ASLModelTests" name="test_endToEndPerformance()" time="1.3688490390777588">
         </testcase>
-        <testcase classname="ASLModelTests" name="test_modelCanMakePrediction()" time="0.07503104209899902">
+        <testcase classname="ASLModelTests" name="test_modelCanMakePrediction()" time="0.0890359878540039">
         </testcase>
-        <testcase classname="BirdClassificationModelTests" name="test_modelCanMakePrediction()" time="0.49718403816223145">
+        <testcase classname="BirdClassificationModelTests" name="test_modelCanMakePrediction()" time="0.5452699661254883">
         </testcase>
-        <testcase classname="BirdClassificationModelTests" name="test_modelProducesUseableData()" time="0.04823100566864014">
+        <testcase classname="BirdClassificationModelTests" name="test_modelProducesUseableData()" time="0.047734975814819336">
         </testcase>
-        <testcase classname="BirdPredictionTests" name="test_canConvertFromDict()" time="0.0015929937362670898">
+        <testcase classname="BirdPredictionTests" name="test_canConvertFromDict()" time="0.0031980276107788086">
         </testcase>
-        <testcase classname="BirdPredictionTests" name="test_filterIgnoresValuesWithLowPrediction()" time="0.0011279582977294922">
+        <testcase classname="BirdPredictionTests" name="test_filterIgnoresValuesWithLowPrediction()" time="0.0011830329895019531">
         </testcase>
-        <testcase classname="BirdPredictionTests" name="test_filterSortsArrayCorrectly()" time="0.0009191036224365234">
+        <testcase classname="BirdPredictionTests" name="test_filterSortsArrayCorrectly()" time="0.0008540153503417969">
         </testcase>
-        <testcase classname="HandPoseObservationTests" name="test_getHandPoseNoVisibleHand()" time="0.022029995918273926">
+        <testcase classname="HandPoseObservationTests" name="test_getHandPoseNoVisibleHand()" time="0.029366016387939453">
         </testcase>
-        <testcase classname="HandPoseObservationTests" name="test_getHandPoseSuccessful()" time="0.023077011108398438">
+        <testcase classname="HandPoseObservationTests" name="test_getHandPoseSuccessful()" time="0.024057984352111816">
         </testcase>
     </testsuite>
 </testsuites>

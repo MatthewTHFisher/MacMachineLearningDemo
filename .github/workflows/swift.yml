@@ -1,7 +1,7 @@
 # This workflow will build a Swift project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
 
-name: Swift
+name: macOS validate & test
 
 on:
   push:
@@ -14,20 +14,27 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Swiftlint
-      run: swiftlint lint --strict
+    
+    - name: Set up ruby env
+      uses: ruby/setup-ruby@v1.138.0
+      with:
+        ruby-version: 3.3.0
+        bundler-cache: true
 
-  test:
+    - name: Swiftlint
+      run: bundle exec fastlane lint
+
+  unit_test:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Update XCBeautify
-      run: brew install xcbeautify
-    - name: Test CreateMLDemo
-      run: set -o pipefail && xcodebuild clean build test -scheme "CreateMLDemo" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcbeautify --report junit --junit-report-filename createmldemo_junit_report.xml
-    - name: Archive test results
-      uses: actions/upload-artifact@v3
+    
+    - name: Set up ruby env
+      uses: ruby/setup-ruby@v1.138.0
       with:
-        name: test-report
-        path: output/test/createmldemo_junit_report.xml
+        ruby-version: 3.3.0
+        bundler-cache: true
+        
+    - name: Test CreateMLDemo
+      run: bundle exec fastlane unit_test
     

@@ -15,10 +15,10 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios swiftlint_autocorrect
+### ios lint
 
 ```sh
-[bundle exec] fastlane ios swiftlint_autocorrect
+[bundle exec] fastlane ios lint
 ```
 
 Perform SwiftLint via Fastlane

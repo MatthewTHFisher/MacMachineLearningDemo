@@ -17,11 +17,17 @@ default_platform(:ios)
 
 platform :ios do
   desc "Perform SwiftLint via Fastlane"
-  lane :swiftlint_autocorrect do
-    swiftlint(
-      mode: :fix,
-      raise_if_swiftlint_error: true
-    )
+  lane :lint do
+    if is_ci
+      swiftlint(
+        raise_if_swiftlint_error: true
+      )
+    else
+      swiftlint(
+        mode: :fix,
+        raise_if_swiftlint_error: true
+      )
+    end
   end
 
   desc "Perform unit tests for the macOS target"
